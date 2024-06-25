@@ -1,0 +1,172 @@
+\documentclass{article}
+
+\usepackage{../packages} % import packages
+
+\begin{document}
+
+\section*{Aufgabe 1}
+
+\subsection*{``$\bm{(i) \Rightarrow (ii)}$''}
+
+Es gilt
+\begin{equation*}
+  \frac{d_e u}{dt} + \mathcal{A} u = f \quad \text{in} \; L^{p'}(I; V),
+\end{equation*}
+was aequivalent ist zu
+\begin{equation*}
+  \int_{I} {\left\Vert \frac{d_e u}{dt}(t) + A(t) u(t) - f(t) \right\Vert}_{V^*}^{p'} \ dt
+  = 0,
+\end{equation*}
+denn $\mathcal{A}$ ist nach Voraussetzung ein induzierter Operator. Hieraus folgt wiederum
+\begin{equation*}
+  \frac{d_e u}{dt}(t) + A(t) u(t) 
+  = f(t) \quad \text{in} \; V^*
+\end{equation*}
+fuer fast alle $t \in I$, was genau die punktweise Formulierung ist.
+
+\subsection*{``$\bm{(ii) \Rightarrow (iii)}$''}
+
+Fuer fast alle $t \in I$ gilt
+\begin{equation*}
+  \frac{d_e u}{dt}(t) + A(t) u(t) 
+  = f(t) \quad \text{in} \; V^*
+\end{equation*}
+d.h.\ fuer alle $v \in V$ gilt
+\begin{equation*}
+  {\left\langle \frac{d_e u}{dt}(t) + A(t) u(t), v \right\rangle}_V
+  =  {\left\langle f(t), v \right\rangle}_V.
+\end{equation*}
+Da die Gleicheit fuer fast alle $t \in I$ gilt, folgt fuer beliebige $v \in V$
+\begin{equation*}
+  \int_{I} {\left\langle \frac{d_e u}{dt}(t), v \right\rangle}_V \ dt
+  =  \int_{I} {\left\langle f(t) - A(t) u(t), v \right\rangle}_V \ dt.
+\end{equation*}
+Korollar~4.9 und die Linearitaet von~$e$ erlauben es uns die Ableitung aus der dualen Paarung herauszuziehen
+\begin{equation*}
+  \int_{I} {\left\langle \frac{d_e u}{dt}(t), v \right\rangle}_V \ dt
+  = \int_{I} \frac{d}{dt} {\left\langle e(u(t)), v \right\rangle}_V \ dt,
+\end{equation*}
+sodass wir mit einer Testfunktion $\varphi \in C^\infty(\overline{I})$ multiplizieren und die Standardformel fuer partielle Integration anwenden koennen
+\begin{equation*}
+  \int_{I} {\left\langle \frac{d_e u}{dt}(t), v \right\rangle}_V \varphi(t) \ dt
+  = {\left[ {\left\langle e(u_c(t)), v \right\rangle}_V \varphi(t) \right]}_{t=0}^{t = T}
+  - \int_{I} {\left\langle e(u(t)), v \right\rangle}_V \varphi'(t) \ dt.
+\end{equation*}
+Nach Voraussetzung setzen wir $\varphi(T) = 0$ und wenden Satz~5.2~(ueber~Gelfand-Dreier) an, wodurch folgt
+\begin{equation*}
+  \int_{I} {\left\langle \frac{d_e u}{dt}(t), v \right\rangle}_V \varphi(t) \ dt
+  = - {(u_0, iv)}_H \varphi(0)
+  - \int_{I} {((iu)(t), iv)}_H \varphi'(t) \ dt.
+\end{equation*}
+Alles in allem gilt also
+\begin{equation*}
+  - {(u_0, iv)}_H \varphi(0)
+  - \int_{I} {((iu)(t), iv)}_H \varphi'(t) \ dt
+  = \int_{I} {\left\langle f(t) - A(t) u(t), v \right\rangle}_V \ dt,
+\end{equation*}
+d.h.
+\begin{equation*}
+  \int_{I} {\left\langle f(t) - A(t) u(t), v \right\rangle}_V \ dt
+  + {(u_0, iv)}_H \varphi(0)
+  + \int_{I} {((iu)(t), iv)}_H \varphi'(t) \ dt
+  = 0.
+\end{equation*}
+
+\subsection*{``$\bm{(iii) \Rightarrow (i)}$''}
+
+Es sei $v \in V$ und $\varphi(T) \in C^\infty(\overline{I})$ mit $\varphi(T) = 0$ beliebig. Dann folgt aus Satz~5.2~(ueber~Gelfand-Dreier)
+\begin{equation*}
+  \int_{I} {((iu)(t), iv)}_H \varphi'(t) \ dt
+  = \int_{I} {\langle e(u(t)), v \rangle}_V \varphi'(t) \ dt
+\end{equation*}
+und mit der Standardformel fuer partielle Integration, Korollar~4.9 und der Linearitaet von $e$
+\begin{equation*}
+  \int_{I} {\langle e(u(t)), v \rangle}_V \varphi'(t) \ dt
+  = {[\langle e(u_c(t)), v \rangle_V \varphi(t)]}_{t=0}^{t=T} - \int_{I} {\left\langle \frac{d_e u}{dt} (t), v \right\rangle}_V \varphi(t) \ dt.
+\end{equation*}
+Durch $\varphi(T) = 0$ und erneute Anwendung von Satz~5.2~(ueber~Gelfand-Dreier) folgt
+\begin{equation*}
+  \int_{I} {((iu)(t), iv)}_H \varphi'(t) \ dt
+  = - {((iu_c)(0), iv)}_H \varphi(0) - \int_{I} {\left\langle \frac{d_e u}{dt} (t), v \right\rangle}_V \varphi(t) \ dt.
+\end{equation*}
+Setzen wir diese Identitaet in die Voraussetzung ein, dann erhalten wir
+% \begin{multline*}
+%   - {((iu_c)(0), iv)}_H \varphi(0) - \int_{I} {\left\langle \frac{d_e u}{dt} (t), v \right\rangle}_V \varphi(t) \ dt\\
+%   = {(u_0, iv)}_H \varphi(0) + \int_{I} \langle f(t) - A(t)u(t), v \rangle_V \varphi(t) \ dt
+% \end{multline*}
+\begin{multline*}
+  \int_{I} {\left\langle f(t) - A(t) u(t), v \right\rangle}_V \ dt
+  + {(u_0, iv)}_H \varphi(0)\\
+  - {((iu_c)(0), iv)}_H \varphi(0) - \int_{I} {\left\langle \frac{d_e u}{dt} (t), v \right\rangle}_V \varphi(t) \ dt
+  = 0.
+\end{multline*}
+oder aequivalent
+\begin{equation*}
+  {(u_0 - (iu_c)(0), iv)}_H \varphi(0) + \int_{I} {\left\langle f(t) - A(t)u(t) - \frac{d_e u}{dt} (t), v \right\rangle}_V \varphi(t) \ dt
+  = 0.
+\end{equation*}
+Da $\varphi$ und $v$ variabel sind, folgt fuer fast alle $t \in I$
+\begin{equation*}
+  \begin{aligned}
+    u_0 - (iu_c)(0) &= 0 \quad \text{in} \; H\\
+    f(t) - A(t)u(t) - \frac{d_e u}{dt} (t) &= 0 \quad \text{in} \; V^*.
+  \end{aligned}
+\end{equation*}
+Durch Integration der $V^*$-Norm des zweiten Terms ueber $I$ folgt
+\begin{equation*}
+  \int_{I} {\left\Vert \frac{d_e u}{dt}(t) + A(t) u(t) - f(t) \right\Vert}_{V^*}^{p'} \ dt
+  = 0,
+\end{equation*}
+was nichts anderes bedeutet als
+\begin{equation*}
+  \frac{d_e u}{dt} + \mathcal{A} u = f \quad \text{in} \; L^{p'}(I; V).
+\end{equation*}
+
+\section*{Aufgabe 2}
+
+Wir zeigen, dass die Voraussetzungen des Instationaeren~Lemmas~von~Lax-Milgram mit $\lambda=0$ erfuellt sind, woraus die zu zeigende Aussage folgt.
+
+\subsection*{Wohldefiniertheit}
+
+In Aufgabe~1 von Blatt~7 wurde bereits gezeigt, dass
+\begin{equation*}
+  (V, H, i)
+  :=
+  \left(W_{0, \divergence}^{1,2}(\Omega), L_{0, \divergence}^2(\Omega), \id_{W_{0, \divergence}^{1,2}(\Omega)}\right)
+\end{equation*}
+ein Gelfand-Dreier ist. Weiterhin ist $V$ als Teilmenge von $L^2(\Omega)$ separabel und reflexiv. Der Operator~$A: V \rightarrow V^*$ aus der Aufgabenstellung ist linear, da das Frobenius-Skalarprodukt bilinear und der Laplaceoperator linear ist.
+
+\subsection*{Carath\'eodory- und $\bm{(2, 2)}$-Majoranten-Bedingung}
+
+Wir zeigen, dass der lineare Operator~$A: V \rightarrow V^*$ beschraenkt ist. Hieraus folgt naemlich erstens die Stetigkeit und somit die Demistetigkeit von $A$, d.h.\ die Carath\'eodorybedingung ist erfuellt. Zweitens impliziert die Beschraenkt\-heit auch die $(2, 2)$-Majoranten-Bedingung mit $\gamma=0$. Es seien also $v,w \in V$ beliebig. Dann gilt nach der Cauchy-Schwartzschen Ungleichung
+\begin{equation*}
+  \langle Av_, w \rangle_V
+  = \int_{\Omega} \nabla v : \nabla w \ dx
+  \leq {\Vert \vert \nabla v \vert \vert \nabla w \vert \Vert}_{L^1(\Omega)}
+\end{equation*}
+und durch Anwendung der Hoelderschen Ungleichung
+\begin{equation*}
+  {\Vert \vert \nabla v \vert \vert \nabla w \vert \Vert}_{L^1(\Omega)}
+  \leq {\Vert \nabla v \Vert}_{L^2(\Omega)} {\Vert \nabla w \Vert}_{L^2(\Omega)}
+  = {\Vert v \Vert}_{V} {\Vert w \Vert}_{V}.
+\end{equation*}
+Zusammengefasst gilt
+\begin{equation*}
+  {\Vert Av \Vert}_{V^*}
+  = \sup_{w \ne 0} \frac{{\langle Av, w \rangle}_V}{{\Vert w \Vert}_V}
+  \leq {\Vert v \Vert}_{V},
+\end{equation*}
+d.h.\ der Operator~$A$ ist beschraenkt.
+
+\subsection*{Semikoerzivitaet-Bedingung}
+
+Fuer beliebige Elemente $v \in V$ gilt
+\begin{equation*}
+  {\langle Av, v \rangle}_V
+  = \int_{\Omega} {\vert \nabla v \vert}^2 \ dx
+  = {\Vert \nabla v \Vert}_{L^2(\Omega)}^2
+  = {\Vert v \Vert}_V^2.
+\end{equation*}
+Insbesondere ist $\lambda=0$, d.h.\ die Loesung ist eindeutig.
+
+\end{document}

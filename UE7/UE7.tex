@@ -1,0 +1,46 @@
+\documentclass{article}
+
+\usepackage{../packages} % import packages
+
+\begin{document}
+
+\section*{Aufgabe 1}
+
+Wir zeigen, dass $W_{0, \divergence}^{1,p}(\Omega)$ ein Banachraum, $H$ ein Hilbertraum und $i:W_{0, \divergence}^{1,p}(\Omega) \rightarrow H$ eine dichte Einbettung ist.
+
+\subsection*{$\bm{W_{0, \divergence}^{1,p}(\Omega)}$ ist ein Banachraum}
+
+Eine moegliche Wahl fuer die Norm auf $W_{0, \divergence}^{1,p}(\Omega)$ ist gegeben durch
+\begin{equation*}
+  {\Vert \cdot \Vert}_{W_{0, \divergence}^{1,p}(\Omega)} : W_{0, \divergence}^{1,p}(\Omega) \rightarrow \mathbb{R}, \quad
+  v = {(v_1, \dots, v_d)}^T \mapsto {\left( \sum_{j = 1}^{d} {\Vert v_j \Vert}_{W_0^{1,p}(\Omega)}^p \right)}^{\frac{1}{p}}.
+\end{equation*}
+Die Vollstaendigkeit folgt daraus, dass 
+\begin{equation*}
+  W_{0, \divergence}^{1,p}(\Omega) \subseteq {(W_0^{1,p}(\Omega))}^d
+\end{equation*}
+abgeschlossen bezueglich der ${(W_0^{1,p}(\Omega))}^d$-Norm ist.
+
+\subsection*{$\bm{L_{0, \divergence}^2(\Omega)}$ ist ein Hilbertraum}
+
+Da $L^2(\Omega)$ ein Hilbertraum ist, ist $L_{0, \divergence}^2(\Omega) \subseteq L^2(\Omega)$ ebenfalls ein Hilbertraum. Eine moegliche Wahl fuer die Norm ist
+\begin{equation*}
+  {\Vert \cdot \Vert}_{L_{0, \divergence}^2(\Omega)} : L_{0, \divergence}^2(\Omega) \rightarrow \mathbb{R}, \quad
+  v = {(v_1, \dots, v_d)}^T \mapsto \sqrt{\sum_{j = 1}^{d} {\Vert v_j \Vert}_{L_0^2(\Omega)}^2}.
+\end{equation*}
+
+\subsection*{$\bm{i: W_{0, \divergence}^{1,p}(\Omega) \rightarrow L_{0, \divergence}^2(\Omega)}$ ist eine dichte Einbettung}
+
+Offensichtlich ist $i$ linear. Dann ist $i$ injektiv, falls die Abbildung einen trivialen Kern hat. Es sei
+\begin{equation*}
+  v = {(v_1, \dots, v_d)}^T \in W_{0, \divergence}^{1,p}(\Omega)
+\end{equation*}
+beliebig mit
+\begin{equation*}
+  \Vert v \Vert_{L_{0, \divergence}^2(\Omega)}
+  = \sqrt{\sum_{j = 1}^{d} {\Vert v_j \Vert}_{L_0^2(\Omega)}^2}
+  = 0.
+\end{equation*}
+Wegen $W_0^{}L_0^2(\Omega)$
+
+\end{document}
