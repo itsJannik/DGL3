@@ -6,7 +6,7 @@
 
 \section*{Aufgabe 1}
 
-Wir zeigen, dass $W_{0, \divergence}^{1,p}(\Omega)$ ein Banachraum, $H$ ein Hilbertraum und $i:W_{0, \divergence}^{1,p}(\Omega) \rightarrow H$ eine dichte Einbettung ist.
+Wir zeigen, dass $W_{0, \divergence}^{1,p}(\Omega)$ ein Banachraum, $L_{0, \divergence}^2(\Omega)$ ein Hilbertraum und $i:W_{0, \divergence}^{1,p}(\Omega) \rightarrow L_{0, \divergence}^2(\Omega)$ eine dichte Einbettung ist.
 
 \subsection*{$\bm{W_{0, \divergence}^{1,p}(\Omega)}$ ist ein Banachraum}
 
@@ -39,8 +39,132 @@ beliebig mit
 \begin{equation*}
   \Vert v \Vert_{L_{0, \divergence}^2(\Omega)}
   = \sqrt{\sum_{j = 1}^{d} {\Vert v_j \Vert}_{L_0^2(\Omega)}^2}
-  = 0.
+  = 0,
 \end{equation*}
-Wegen $W_0^{}L_0^2(\Omega)$
+was aequivalent is zu
+\begin{equation*}
+  v_j = 0 \quad \text{fast ueberall}
+\end{equation*}
+fuer alle $j=1, \dots, d$. Hieraus folgt insbesondere
+\begin{equation*}
+  \nabla v = 0 \quad \text{fast ueberall}
+\end{equation*}
+und somit
+\begin{equation*}
+  v = 0 \quad \text{in} \; W_{0, \divergence}^{1,p}(\Omega),
+\end{equation*}
+d.h.\ $i$ ist injektiv. Es bleibt also zu zeigen, dass $R(i)$ dicht in $L_{0, \divergence}^2(\Omega)$ liegt. Es sei $v \in L_{0, \divergence}^2(\Omega)$ beliebig. Dann existiert eine Folge $(v_n)_{n \in \mathbb{N}} \subseteq C_c^\infty(\Omega) \subseteq V$ mit
+\begin{equation*}
+  v_n \rightarrow v \quad \text{in} \; L^2(\Omega)
+\end{equation*}
+Hier muss mit $\nabla \cdot v = 0$ und der $p,d$-Ungleichung gearbeitet werden
+
+\section*{Aufgabe 2}
+
+Nach Korollar~4.9 gilt
+\begin{equation*}
+  \frac{d_e u}{dt} = e \left(\frac{du}{dt}\right),
+\end{equation*}
+d.h.\ Satz~5.2~(ueber~Gelfand-Dreier) und die Linearitaet von~$i$ liefern
+\begin{equation*}
+  \left\langle \frac{d_e u}{dt}(t), v(t) \right\rangle_V
+  = \left(\left(i \frac{du}{dt} \right)(t), (iv)(t)\right)_H
+  = \left(\frac{d \left(iu \right)}{dt}(t), (iv)(t)\right)_H
+\end{equation*}
+fuer alle $v \in C^1(\overline{I}; V)$. Nach der Produktregel der klassischen Ableitung in Hilbertraeumen folgt
+\begin{equation*}
+  \left(\frac{d \left(iu \right)}{dt} (t), (iv)(t)\right)_H
+  = \frac{d}{dt} \left(\left(iu \right)(t), (iv)(t)\right)_H
+  - \left(\left(iu \right)(t), \frac{d (iv)}{dt} (t)\right)_H.
+\end{equation*}
+Fuer den Subtrahent gilt
+\begin{equation*}
+  \left(\left(iu \right)(t), \frac{d (iv)}{dt} (t)\right)_H
+  = \left(\left(i \frac{dv}{dt} \right)(t), (iu)(t)\right)_H,
+\end{equation*}
+da das reelle Skalarprodukt symmetrisch und $i$ linear ist. Erneute Anwendung von Satz~5.2~(ueber~Gelfand-Dreier) liefert
+\begin{equation*}
+  \left(\left(i \frac{dv}{dt} \right)(t), (iu)(t)\right)_H
+  = \left\langle \frac{d_e v}{dt} (t), u(t)\right\rangle_V
+\end{equation*}
+und somit folgt mit dem klassischen Hauptsatz der Differential- und Integralrechnung
+\begin{equation*}
+  \int_{t'}^{t} \left\langle \frac{d_e u}{dt}(s), v(s) \right\rangle_V \ ds
+  = \left[\left(\left(iu \right)(s), (iv)(s)\right)_H \right]_{s=t'}^{s=t}
+  - \int_{t'}^{t} \left\langle \frac{d_e v}{ds} (s), u(s)\right\rangle_V \ ds
+\end{equation*}
+fuer $t,t' \in \overline{I}$ mit $t' \leq t$.
+
+\section*{Aufgabe 3}
+
+Da die Operatorfamilie $A(t): X \rightarrow Y, t \in I$ der Caratheodory- und der $(p,q)$-Majoranten-Bedingung genuegt, folgt aus Lemma~6.6~(Nemyckii-Operator), dass der induzierte Operator~$\mathcal{A}: L^p(I; X) \rightarrow L^q(I; Y)$ wohldefiniert, beschraenkt und demi-stetig ist. Es bleibt also zu zeigen, dass $\mathcal{A}$ zusaetzlich stetig ist. Es sei also 
+\begin{equation*}
+  (u_n)_{n \in \mathbb{N}} \subseteq L^p(I; X)
+\end{equation*}
+ eine beliebige Folge, die gegen ein Element $u \in L^p(I; X)$ konvergiert. Wir werden das Teilfolgenkonvergenzprinzip aus Aufgabe~4 anwenden und betrachten deswegen eine beliebige Teilfolge
+ \begin{equation*}
+  \left(u_{n_k}\right)_{k \in \mathbb{N}} \subseteq (u_n)_{n \in \mathbb{N}}.
+\end{equation*}
+Wegen Korollar~2.8~(Umkehrung~des~Satzes~von~Lebesgue) existiert eine Teilfolge
+\begin{equation*}
+  \left(u_{n_{k_l}}\right)_{l \in \mathbb{N}} \subseteq \left(u_{n_k}\right)_{k \in \mathbb{N}},
+\end{equation*}
+sodass fuer fast alle $t \in I$ gilt
+\begin{equation*}
+  \lim_{l \rightarrow \infty} u_{n_{k_l}}(t) = u(t) \quad \text{in} \; X.
+\end{equation*}
+Aufgrund der Stetigkeit von $A$ folgt
+\begin{equation*}
+  \lim_{l \rightarrow \infty} A(t)u_{n_{k_l}}(t) = A(t)u(t) \quad \text{in} \; Y
+\end{equation*}
+und somit mit dem Satz~von~Lebesgue
+\begin{equation*}
+  \lim_{l \rightarrow \infty} \int_{I} \left\Vert A(t)u(t) - A(t)u_{n_{k_l}}(t) \right\Vert_Y^q \ dt 
+  = 0,
+\end{equation*}
+d.h.\ 
+\begin{equation*}
+  \lim_{l \rightarrow \infty} \mathcal{A} u_{n_{k_l}}
+  = \mathcal{A} u \quad \text{in} \; L^q(I; Y).
+\end{equation*}
+Nach dem Teilfolgenkonvergenzprinzip folgt
+\begin{equation*}
+  \lim_{n \rightarrow \infty} \mathcal{A} u_{n}
+  = \mathcal{A} u \quad \text{in} \; L^q(I; Y),
+\end{equation*}
+womit die Stetigkeit von $\mathcal{A}$ folgt.
+
+\section*{Aufgabe 4}
+
+Wir betrachten die reelle Zahlenfolge
+\begin{equation*}
+  \left(\Vert x_n - x \Vert_X\right)_{n \in \mathbb{N}},
+\end{equation*}
+und definieren
+\begin{equation*}
+  \alpha := \limsup_{n \rightarrow \infty} \Vert x_n - x \Vert_X
+  \in [0, \infty].
+\end{equation*}
+Dann existiert eine Teilfolge
+\begin{equation*}
+  \left(\Vert x_{n_k} - x \Vert_X\right)_{k \in \mathbb{N}},
+\end{equation*}
+mit
+\begin{equation*}
+  \alpha = \lim_{k \rightarrow \infty} \Vert x_{n_k} - x \Vert_X.
+\end{equation*}
+Nach Voraussetzung existiert eine weitere Teilfolge
+\begin{equation*}
+  \left(\Vert x_{n_{k_l}} - x \Vert_X\right)_{l \in \mathbb{N}},
+\end{equation*}
+mit
+\begin{equation*}
+  0 = \lim_{l \rightarrow \infty} \Vert x_{n_{k_l}} - x \Vert_X.
+\end{equation*}
+Wegen der Eindeutigkeit der Grenzwerte folgt
+\begin{equation*}
+  \alpha = 0,
+\end{equation*}
+d.h.\ $x_n \rightarrow x$ in $X$.
 
 \end{document}
