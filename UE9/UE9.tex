@@ -1,0 +1,371 @@
+\documentclass{article}
+
+\usepackage{../packages} % import packages
+
+\begin{document}
+
+\section*{Aufgabe 1}
+
+\subsection*{Injektivitaet}
+
+Es seien $f \in L^{p'}(I; V^*)$ und $u_0 \in H$ beliebige Daten sowie $u_j \in W_e^{1, p, p'}(I; V, V^*)$ fuer $j=1,2$ Loesungen, d.h.
+\begin{equation*}
+  \begin{aligned}
+    \frac{d_e u_j}{dt} + \mathcal{A} u &= f \quad &&\text{in} \; L^{p'}(I; V^*)\\
+    (i_c u_j)(0) &= u_0 \quad &&\text{in} \; H.
+  \end{aligned}
+\end{equation*}
+
+\section*{Aufgabe 2}
+
+\subsection*{(i)}
+
+Es sei $g \in (L^q(I))^* = L^{q'}(I)$ beliebig, aber fest. Wir zeigen die Aussage zuerst fuer Treppenfunktionen $s \in \mathcal{S}(I) \subseteq L^{q'}(I)$ und anschliessend den allgemeinen Fall.
+
+\subsubsection*{$\bm{s \in \mathcal{S}(I)}$}
+
+Da $s \in \mathcal{S}(I)$ eine Treppenfunktion ist, existieren fuer $i=1, \dots, m$ Konstanten~$\alpha_i \in \mathbb{R}$ und paarweise disjunkte Intervalle $I_i \subseteq I$  mit
+\begin{equation*}
+  s(t)
+  = \sum_{i = 1}^{m} \alpha_i \chi_{I_i}(t).
+\end{equation*}
+Daraus folgt
+\begin{equation*}
+  \langle s, f_n \rangle_{L^q(I)}
+  = \int_{I}^{} s(t) f_n(t) \ dt
+  = \sum_{i = 1}^{m} \alpha_i \int_{I_i} \sin(nt) \ dt
+\end{equation*}
+und wegen
+\begin{equation*}
+  \int_{I_i} \sin(nt) \ dt
+  = - \frac{1}{n} [\cos(nt)]_{t = \inf I_i}^{t = \sup I_i}
+\end{equation*}
+erhalten wir
+\begin{equation*}
+  \vert \langle s, f_n \rangle_{L^q(I)} \vert
+  \leq \frac{1}{n} \cdot 2 \pi \sum_{i = 1}^{m} \alpha_i
+  \rightarrow 0.
+\end{equation*}
+
+\subsubsection*{$\bm{g \in L^{q'}(I)}$}
+
+Es sei $\varepsilon > 0$ beliebig. Da $\mathcal{S}(I)$ dicht in $L^{q'}(I)$ liegt, existiert eine Treppenfunktion $s \in \mathcal{S}(I)$ mit
+\begin{equation*}
+  \Vert g - s \Vert_{L^{q'}(I)}
+  \leq \frac{\varepsilon}{2 \pi + 1}.
+\end{equation*}
+Weiterhin existiert nach~(i) ein $n_\varepsilon \in \mathbb{N}$, sodass fuer alle $n \geq n_\varepsilon$ gilt
+\begin{equation*}
+  \vert \langle s, f_n \rangle_{L^q(I)} \vert
+  \leq \frac{\varepsilon}{2 \pi + 1}.
+\end{equation*}
+Offensichtlich impliziert die Hoeldersche Ungleichung
+\begin{equation*}
+  \vert \langle g - s, f_n \rangle_{L^q(I)} \vert
+  \leq \Vert (g-s) f_n \Vert_{L^1(I)}
+  \leq \Vert g-s \Vert_{L^{q'}(I)} \Vert f_n \Vert_{L^q(I)}
+  \leq \frac{\varepsilon}{2 \pi + 1} 2 \pi,
+\end{equation*}
+d.h.\ insgesamt erhalten wir
+\begin{equation*}
+  \begin{aligned}
+    \vert \langle g, f_n \rangle_{L^q(I)} \vert
+    &\leq \vert \langle g - s, f_n \rangle_{L^q(I)} \vert
+    &&+ \vert \langle s, f_n \rangle_{L^q(I)} \vert \\
+    &\leq \frac{\varepsilon}{2 \pi + 1} 2 \pi
+    &&+ \frac{\varepsilon}{2 \pi + 1}\\
+    &= \varepsilon.
+  \end{aligned}
+\end{equation*}
+
+\subsection*{(ii)}
+
+Offensichtlich gilt
+\begin{equation*}
+  \Vert f_n \Vert_{L^2(I)}^2
+  = \int_{I} \sin^2(nt) \ dt
+  = \int_{I} \sin(nt) \cdot \frac{d}{dt} \left(- \frac{1}{n}  \cos(nt)\right) \ dt
+\end{equation*}
+und mit der klassischen partiellen Integration folgt
+\begin{equation*}
+  \int_{I} \sin^2(nt) \ dt
+  = \left[- \frac{1}{n} \sin(nt) \cos(nt)\right]_{t=0}^{t= 2\pi}
+  + \frac{1}{n} \int_{I} \frac{d}{dt} \left(\sin(nt)\right) \cos(nt) \ dt.
+\end{equation*}
+Wegen $\sin(0) = 0 = \sin(2 \pi n)$ fuer alle $n \in \mathbb{N}$ verschwindet der erste Term, d.h.\
+\begin{equation*}
+  \int_{I} \sin^2(nt) \ dt
+  = \int_{I}  \cos^2(nt) \ dt
+\end{equation*}
+und wegen
+\begin{equation*}
+  \sin^2 + \cos^2 = 1
+\end{equation*}
+folgt
+\begin{equation*}
+  2 \int_{I}^{} \sin^2(nt) \ dt
+  = \int_{I}^{} 1 \ dt
+  = 2 \pi.
+\end{equation*}
+Alles in allem erhalten wir
+\begin{equation*}
+  \Vert f_n \Vert_{L^2(I)}^2
+  = \pi
+\end{equation*}
+fuer alle $n \in \mathbb{N}$.
+
+\section*{Aufgabe 3}
+
+Wegen $f_n \rightharpoonup f$ in $L^p(I)$ gilt fuer alle $g \in (L^p(I))^* = L^{p'}(I)$
+\begin{equation*}
+  \langle g, f_n \rangle_{L^p(I)}
+  = \int_{I}^{} g(t) f_n(t) \ dt
+  \rightarrow
+  \int_{I}^{} g(t) f(t) \ dt
+  = \langle g, f \rangle_{L^p(I)}.
+\end{equation*}
+Es sei $v \in (L^p(I; X))^* = L^{p'}(I; X^*)$ beliebig. Dann gilt
+\begin{equation*}
+  \langle v, u_n \rangle_{L^p(I; X)}
+  = \int_{I}^{} \langle v(t), x f_n(t) \rangle_X \ dt
+  = \int_{I}^{} f_n(t) \langle v(t), x \rangle_X \ dt,
+\end{equation*}
+d.h.\ falls wir zeigen koennen, dass gilt
+\begin{equation*}
+  t \mapsto \langle v(t), x \rangle_X
+  \in L^{p'}(I),
+\end{equation*}
+dann folgt
+\begin{equation*}
+  \langle v, u_n \rangle_{L^p(I; X)}
+  \rightarrow
+  \langle v, u \rangle_{L^p(I; X)}.
+\end{equation*}
+Wegen der linearen Beschraenktheit der dualen Paarung gilt
+\begin{equation*}
+  \int_{I}^{} \vert \langle v(t), x \rangle_X \vert^{p'} \ dt
+  \leq \Vert x \Vert_X^{p'} \int_{I}^{} \Vert v(t) \Vert_{X^*}^{p'} \ dt
+  = \Vert x \Vert_X^{p'} \Vert v \Vert_{L^{p'}(I; X^*)}^{p'}
+\end{equation*}
+und nach Annahme $v \in L^{p'}(I; X^*)$. Hiermit haben wir gezeigt
+\begin{equation*}
+  t \mapsto \langle v(t), x \rangle_X
+  \in L^{p'}(I),
+\end{equation*}
+und schlussendlich
+\begin{equation*}
+  \langle v, u_n \rangle_{L^p(I; X)}
+  \rightarrow
+  \langle v, u \rangle_{L^p(I; X)}.
+\end{equation*}
+
+\section*{Aufgabe 4}
+
+Wir zeigen die Kanzellierungseigenschaft des konvektiven Terms zuerst fuer Testfunktionen 
+\begin{equation*}
+  \varphi \in \mathcal{V}
+  = \{\phi \in (C_c^\infty(\Omega))^d \mid \nabla \cdot \phi = 0 \; \; \text{in} \; \Omega\},
+\end{equation*}
+wobei $\cdot$ das euklidische Skalarprodukt kennzeichnet. Anschliessend zeigen wir, dass daraus die Kanzellierungseigenschaft fuer beliebige Funktionen
+\begin{equation*}
+  v \in W_{0, \sigma}^{1,p}(\Omega)
+  = \overline{\mathcal{V}}^{\Vert \cdot \Vert_{(W^{1,p}(\Omega))^d}}
+\end{equation*}
+folgt.
+
+\subsection*{$\bm{\varphi \in \mathcal{V}}$}
+
+Fuer das dyadische Produkt gilt
+\begin{equation*}
+  \varphi \otimes \varphi
+  = \begin{bmatrix}
+    \varphi_1 \varphi_1 & \hdots & \varphi_1 \varphi_d\\
+    \vdots & \ddots & \vdots \\
+    \varphi_d \varphi_1 & \hdots & \varphi_d \varphi_d
+  \end{bmatrix}
+  = \left[\varphi_1 \varphi, \dots, \varphi_d \varphi\right]
+  = \left[\varphi_i \varphi\right]_{i=1, \dots, d}
+\end{equation*}
+und fuer den Gradienten
+\begin{equation*}
+  \nabla \varphi
+  = \begin{bmatrix}
+    \frac{\partial \varphi_1}{\partial x_1} & \hdots & \frac{\partial \varphi_1}{\partial x_d} \\
+    \vdots & \ddots & \vdots \\
+    \frac{\partial \varphi_d}{\partial x_1} & \hdots & \frac{\partial \varphi_d}{\partial x_d}
+  \end{bmatrix}
+  = \begin{bmatrix}
+    \nabla \varphi_1^T \\
+    \vdots \\
+    \nabla \varphi_1^T
+  \end{bmatrix}
+  = \left[\nabla \varphi_i^T\right]_{i=1, \dots, d}
+\end{equation*}
+Somit folgt, da $\varphi \otimes \varphi$ symmetrisch ist
+\begin{equation*}
+  \varphi \otimes \varphi : \nabla \varphi
+  = \sum_{i = 1}^{d} \varphi_i \varphi \cdot \nabla \varphi_i.
+\end{equation*}
+Fuer $i = 1, \dots, d$ erhalten wir mit dem Satz von Gauss
+\begin{equation*}
+  \int_{\Omega}^{} \varphi_i \varphi \cdot \nabla \varphi_i \ dx
+  = \int_{\partial \Omega}^{} \varphi_i \varphi \cdot \nu \ dO
+  - \int_{\Omega}^{} \varphi_i \nabla \cdot \varphi \ dx,
+\end{equation*}
+wobei $\nu \in C^1(\Omega)$ das aeussere Normaleneinheitsfeld ist. Wegen $\supp \varphi \subseteq \Omega$ verschwindet der erste Term und wegen $\nabla \cdot \varphi = 0$ der zweite, also
+\begin{equation*}
+  \int_{\Omega}^{} \varphi_i \varphi \cdot \nabla \varphi_i \ dx
+  = 0
+\end{equation*}
+und somit letztendlich
+\begin{equation*}
+  \langle C \varphi, \varphi \rangle_{W_{0, \sigma}^{1,p} (\Omega)}
+  = - \int_{\Omega}^{} \varphi \otimes \varphi : \nabla \varphi \ dx
+  = - \sum_{i = 1}^{d} \int_{\Omega}^{} \varphi_i \varphi \cdot \nabla \varphi_i \ dx
+  = 0.
+\end{equation*}
+
+\subsection*{$\bm{v \in W_{0, \sigma}^{1,p}(\Omega)}$}
+
+Es seien $v \in W_{0, \sigma}^{1,p}(\Omega)$ und $\varepsilon>0$ beliebig. Dann existiert $\varphi \in \mathcal{V}$ mit
+\begin{equation*}
+  \Vert v - \varphi \Vert_{(W^{1,p}(\Omega))^d}
+  < \frac{\varepsilon}{1 + \Vert \varphi \Vert_{(L^{2 p'}(\Omega))^d}^2 + 2  \Vert \vert \varphi \vert \vert \nabla \varphi \vert \Vert_{L^{p'}(\Omega)}}
+  =: \delta
+\end{equation*}
+Durch Einfuegen von
+\begin{equation*}
+  \begin{aligned}
+    \langle Cv, \varphi \rangle_{W_{0, \sigma}^{1,p} (\Omega)}
+    - \langle Cv, \varphi \rangle_{W_{0, \sigma}^{1,p} (\Omega)}
+    &= 0 \\
+    \langle C \varphi, \varphi \rangle_{W_{0, \sigma}^{1,p} (\Omega)}
+    - \langle C \varphi, \varphi \rangle_{W_{0, \sigma}^{1,p} (\Omega)} &= 0 \\
+    \langle C \varphi, v - \varphi \rangle_{W_{0, \sigma}^{1,p} (\Omega)}
+    - \langle C \varphi, v - \varphi \rangle_{W_{0, \sigma}^{1,p} (\Omega)}
+    &= 0
+  \end{aligned}
+\end{equation*}
+erhalten wir
+\begin{multline*}
+    \langle Cv, v \rangle_{W_{0, \sigma}^{1,p} (\Omega)}
+    = \langle Cv - C \varphi, v - \varphi \rangle_{W_{0, \sigma}^{1,p} (\Omega)} 
+    + \langle C \varphi, v - \varphi \rangle_{W_{0, \sigma}^{1,p} (\Omega)} \\
+    + \langle Cv - C \varphi, \varphi \rangle_{W_{0, \sigma}^{1,p} (\Omega)} 
+    + \langle C \varphi, \varphi \rangle_{W_{0, \sigma}^{1,p} (\Omega)}
+\end{multline*}
+Wir betrachten die einzelnen Summanden getrennt.
+
+\subsubsection*{$\bm{\langle C \varphi, \varphi \rangle_{W_{0, \sigma}^{1,p} (\Omega)} = 0}$}
+
+Das haben wir bereits im vorherigen Abschnitt gezeigt
+
+\subsubsection*{$\bm{\langle Cv - C \varphi, \varphi \rangle_{W_{0, \sigma}^{1,p} (\Omega)}}$}
+
+Nach dem Satz von Cauchy-Schwartz gilt
+\begin{equation*}
+  \begin{aligned}
+    \vert \langle Cv - C \varphi , \varphi \rangle_{W_{0, \sigma}^{1,p} (\Omega)} \vert
+    &= \left\vert \int_{\Omega}^{} (v \otimes v - \varphi \otimes \varphi) : \nabla \varphi \ dx \right\vert \\
+    &\leq \int_{\Omega}^{} \vert v \otimes v - \varphi \otimes \varphi \vert \vert \nabla \varphi \vert \ dx
+  \end{aligned}
+\end{equation*}
+und durch Hinzufuegen von $v \otimes \varphi - v \otimes \varphi$ und $\varphi \otimes (v - \varphi) - \varphi \otimes (v - \varphi)$ folgt
+\begin{multline*}
+  \int_{\Omega}^{} \vert v \otimes v - \varphi \otimes \varphi \vert \vert \nabla \varphi \vert \ dx
+  \leq   \int_{\Omega}^{} \vert (v - \varphi) \otimes (v - \varphi) \vert \vert \nabla \varphi \vert \ dx \\
+  + \int_{\Omega}^{} \vert (v - \varphi) \otimes \varphi \vert  \vert \nabla \varphi \vert \ dx.
+  + \int_{\Omega}^{} \vert \varphi \otimes (v - \varphi) \vert  \vert \nabla \varphi \vert \ dx.
+\end{multline*}
+Wegen $\vert x \otimes y \vert = \vert x \vert \vert y \vert$ erhalten wir
+\begin{equation*}
+  \int_{\Omega}^{} \vert v \otimes v - \varphi \otimes \varphi \vert \vert \nabla \varphi \vert \ dx
+  \leq   \int_{\Omega}^{} \vert v - \varphi \vert^2 \vert \nabla \varphi \vert \ dx
+  + 2 \int_{\Omega}^{} \vert  v - \varphi \vert \vert \varphi \vert \vert \nabla \varphi \vert \ dx.
+\end{equation*}
+Anwendung der Hoelderungleichung liefert
+\begin{multline*}
+  \vert \langle Cv - C \varphi , \varphi \rangle_{W_{0, \sigma}^{1,p} (\Omega)} \vert
+  \leq \Vert v - \varphi \Vert_{(L^p(\Omega))^{d}}^2 \Vert \nabla \varphi \Vert_{(L^{\left(\frac{p}{2}\right)'}(\Omega))^{d,d}} \\
+  + 2 \Vert v - \varphi \Vert_{(L^p(\Omega))^d}\Vert \vert \varphi \vert \vert \nabla \varphi \vert \Vert_{L^{p'}(\Omega)},
+\end{multline*}
+d.h.\ es folgt
+\begin{equation*}
+  \vert \langle Cv - C \varphi , \varphi \rangle_{W_{0, \sigma}^{1,p} (\Omega)} \vert
+  \leq \delta^2 \Vert \nabla \varphi \Vert_{(L^{\left(\frac{p}{2}\right)'}(\Omega))^{d,d}}
+  + 2 \delta \Vert \vert \varphi \vert \vert \nabla \varphi \vert \Vert_{L^{p'}(\Omega)}
+\end{equation*}
+
+\subsubsection*{$\bm{\langle C \varphi, v - \varphi \rangle_{W_{0, \sigma}^{1,p} (\Omega)}}$}
+
+Nach den Ungleichungen von Cauchy-Schwartz und Hoelder gilt
+\begin{equation*}
+  \begin{aligned}
+    \vert \langle C \varphi, v - \varphi \rangle\vert
+    \leq \int_{\Omega}^{} \vert \varphi \vert^2 \vert \nabla v - \nabla \varphi \vert  \ dx
+    &\leq \Vert \varphi \Vert_{(L^{2 p'}(\Omega))^d}^2 \Vert v - \varphi \Vert_{(W^{1, p}(\Omega))^d} \\
+    &\leq \delta \Vert \varphi \Vert_{(L^{2 p'}(\Omega))^d}^2 
+  \end{aligned}
+\end{equation*}
+
+\subsubsection*{$\bm{\langle Cv - C \varphi, v - \varphi \rangle_{W_{0, \sigma}^{1,p} (\Omega)}}$}
+
+Nach den Ungleichungen von Cauchy-Schwartz und Hoelder gilt
+\begin{equation*}
+  \begin{aligned}
+    \vert \langle  Cv - C \varphi, v - \varphi \rangle_{W_{0, \sigma}^{1,p} (\Omega)} \vert
+    &\leq \int_{\Omega}^{} \vert v - \varphi \vert^2 \vert \nabla v - \nabla \varphi \vert \ dx \\
+    &\leq \Vert v - \varphi \Vert_{L^{2 p'}(\Omega)}^2 \Vert v - \varphi \Vert_{W^{1,p}(\Omega)}.
+  \end{aligned}
+  \end{equation*}
+Wir wollen den Kompaktheitssatz von Rellich anwenden. Es gilt
+% folgt die Aussage (S.~89).
+\begin{equation*}
+  p
+  \geq \frac{3d + 2}{d+2}
+  > \frac{3d}{d+2}
+  = \frac{3}{2} \frac{2d}{d+2}
+  = \frac{3}{2} \left(\frac{1}{2} + \frac{1}{d}\right)^{-1},
+\end{equation*}
+was aequivalent ist zu
+\begin{equation*}
+  \frac{1}{2} + \frac{1}{d}
+  > \frac{3}{2p}
+\end{equation*}
+und
+\begin{equation*}
+  \frac{1}{p}
+  - \frac{1}{d}
+  <
+  \frac{1}{2}
+  - \frac{1}{2p}
+  = \frac{1}{2} \left( 1 - \frac{1}{p}\right)
+  = \frac{1}{2p'}.
+\end{equation*}
+Hieraus folgt
+\begin{equation*}
+  W^{1,p}(\Omega) 
+  \stackrel{c}{\hookrightarrow}
+  L^{2p'}(\Omega),
+\end{equation*}
+d.h.\
+\begin{equation*}
+  \Vert v - \varphi \Vert_{L^{2 p'}(\Omega)}^2
+  < \delta^2
+  < \delta.
+\end{equation*}
+Alles in allen erhalten wir
+\begin{equation*}
+  \vert \langle  Cv - C \varphi, v - \varphi \rangle_{W_{0, \sigma}^{1,p} (\Omega)} \vert
+  \leq \delta.
+\end{equation*}
+Zusammengefasst haben wir gezeigt
+\begin{equation*}
+  \langle Cv, v \rangle_{W_{0, \sigma}^{1,p} (\Omega)}
+  \leq \delta
+  + \delta \Vert \varphi \Vert_{(L^{2 p'}(\Omega))^d}^2 
+  + 2 \delta \Vert \vert \varphi \vert \vert \nabla \varphi \vert \Vert_{L^{p'}(\Omega)}
+  = \varepsilon.
+\end{equation*}
+
+\end{document}
