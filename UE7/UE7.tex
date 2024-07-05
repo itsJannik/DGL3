@@ -31,33 +31,58 @@ Da $L^2(\Omega)$ ein Hilbertraum ist, ist $L_{0, \divergence}^2(\Omega) \subsete
 
 \subsection*{$\bm{i: W_{0, \divergence}^{1,p}(\Omega) \rightarrow L_{0, \divergence}^2(\Omega)}$ ist eine dichte Einbettung}
 
-Offensichtlich ist $i$ linear. Dann ist $i$ injektiv, falls die Abbildung einen trivialen Kern hat. Es sei
+Offensichtlich ist $i$ linear. Dann ist $i$ injektiv, falls die Abbildung einen trivialen Kern hat. Wir werden den Sobolevschen Einbettungs\-satz benutzen. Nach Voraussetzung gilt
+\begin{equation*}
+  p
+  \geq \frac{2d}{d+2}
+  = \left(\frac{d+2}{2d} \right)^{-1}
+  = \left(\frac{1}{2} + \frac{1}{d} \right)^{-1},
+\end{equation*}
+was aequivalent ist zu
+\begin{equation*}
+  p \left(\frac{1}{2} + \frac{1}{d} \right)
+  \geq 1
+\end{equation*}
+und
+\begin{equation*}
+  \frac{1}{2}
+  \geq \frac{1}{p}
+  - \frac{1}{d}.
+\end{equation*}
+Somit existiert eine Konstante~$c>0$, sodass fuer alle $v \in W^{1,p}(\Omega)$ gilt
+\begin{equation*}
+  \Vert v \Vert_{W_{}^{1,p}(\Omega)}
+  \leq c \Vert v \Vert_{L_{}^2(\Omega)}.
+\end{equation*}
+Es sei
 \begin{equation*}
   v = {(v_1, \dots, v_d)}^T \in W_{0, \divergence}^{1,p}(\Omega)
 \end{equation*}
 beliebig mit
 \begin{equation*}
   \Vert v \Vert_{L_{0, \divergence}^2(\Omega)}
-  = \sqrt{\sum_{j = 1}^{d} {\Vert v_j \Vert}_{L_0^2(\Omega)}^2}
-  = 0,
+  = 0.
 \end{equation*}
-was aequivalent is zu
+Dann folgt
 \begin{equation*}
-  v_j = 0 \quad \text{fast ueberall}
+  \Vert v \Vert_{W_{}^{1,p}(\Omega)}
+  = 0
 \end{equation*}
-fuer alle $j=1, \dots, d$. Hieraus folgt insbesondere
+d.h.\ $i$ ist injektiv. 
+
+Ausserdem ist $i$ stetig. Es sei $v \in W_{0, \divergence}^{1,p}(\Omega)$ beliebig. Dann gilt
 \begin{equation*}
-  \nabla v = 0 \quad \text{fast ueberall}
+  \Vert iv \Vert_{L^2(\Omega)}
+  \leq \Vert v \Vert_{W^{1,p}(\Omega)},
 \end{equation*}
-und somit
+d.h.\ $i$ ist beschraenkt und als lineare Abbildung somit stetig.
+
+Es bleibt also zu zeigen, dass $R(i)$ dicht in $L_{0, \divergence}^2(\Omega)$ liegt. Es sei $v \in L_{0, \divergence}^2(\Omega)$ beliebig. Dann existiert eine Folge $(v_n)_{n \in \mathbb{N}} \subseteq \mathcal{V}$ mit
 \begin{equation*}
-  v = 0 \quad \text{in} \; W_{0, \divergence}^{1,p}(\Omega),
+  v_n \rightarrow v \quad \text{in} \; (L^2(\Omega))^d.
 \end{equation*}
-d.h.\ $i$ ist injektiv. Es bleibt also zu zeigen, dass $R(i)$ dicht in $L_{0, \divergence}^2(\Omega)$ liegt. Es sei $v \in L_{0, \divergence}^2(\Omega)$ beliebig. Dann existiert eine Folge $(v_n)_{n \in \mathbb{N}} \subseteq C_c^\infty(\Omega) \subseteq V$ mit
-\begin{equation*}
-  v_n \rightarrow v \quad \text{in} \; L^2(\Omega)
-\end{equation*}
-Hier muss mit $\nabla \cdot v = 0$ und der $p,d$-Ungleichung gearbeitet werden
+Wegen $\mathcal{V} \subseteq V$ und $iv_n = v_n$ liegt somit $R(i)$ dicht in $L_{0, \divergence}^2(\Omega)$.
+
 
 \section*{Aufgabe 2}
 

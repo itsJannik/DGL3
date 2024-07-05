@@ -46,7 +46,7 @@ Korollar~4.9 und die Linearitaet von~$e$ erlauben es uns die Ableitung aus der d
   \int_{I} {\left\langle \frac{d_e u}{dt}(t), v \right\rangle}_V \ dt
   = \int_{I} \frac{d}{dt} {\left\langle e(u(t)), v \right\rangle}_V \ dt,
 \end{equation*}
-sodass wir mit einer Testfunktion $\varphi \in C^\infty(\overline{I})$ multiplizieren und die Standardformel fuer partielle Integration anwenden koennen
+sodass wir mit einer Testfunktion $\varphi \in C^\infty(\overline{I})$ multiplizieren und die \textcolor{red}{Standardformel fuer partielle Integration} anwenden koennen
 \begin{equation*}
   \int_{I} {\left\langle \frac{d_e u}{dt}(t), v \right\rangle}_V \varphi(t) \ dt
   = {\left[ {\left\langle e(u_c(t)), v \right\rangle}_V \varphi(t) \right]}_{t=0}^{t = T}
@@ -79,7 +79,7 @@ Es sei $v \in V$ und $\varphi(T) \in C^\infty(\overline{I})$ mit $\varphi(T) = 0
   \int_{I} {((iu)(t), iv)}_H \varphi'(t) \ dt
   = \int_{I} {\langle e(u(t)), v \rangle}_V \varphi'(t) \ dt
 \end{equation*}
-und mit der Standardformel fuer partielle Integration, Korollar~4.9 und der Linearitaet von $e$
+und mit der \textcolor{red}{Standardformel fuer partielle Integration}, Korollar~4.9 und der Linearitaet von $e$
 \begin{equation*}
   \int_{I} {\langle e(u(t)), v \rangle}_V \varphi'(t) \ dt
   = {[\langle e(u_c(t)), v \rangle_V \varphi(t)]}_{t=0}^{t=T} - \int_{I} {\left\langle \frac{d_e u}{dt} (t), v \right\rangle}_V \varphi(t) \ dt.
@@ -112,7 +112,7 @@ Da $\varphi$ und $v$ variabel sind, folgt fuer fast alle $t \in I$
     f(t) - A(t)u(t) - \frac{d_e u}{dt} (t) &= 0 \quad \text{in} \; V^*.
   \end{aligned}
 \end{equation*}
-Durch Integration der $V^*$-Norm des zweiten Terms ueber $I$ folgt
+Durch Integration der $V^*$-Norm der zweiten Gleichung ueber $I$ folgt
 \begin{equation*}
   \int_{I} {\left\Vert \frac{d_e u}{dt}(t) + A(t) u(t) - f(t) \right\Vert}_{V^*}^{p'} \ dt
   = 0,
